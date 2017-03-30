@@ -2,6 +2,9 @@ package com.example.cristiana.workshop1;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
@@ -23,6 +26,15 @@ public class ProfileActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
+
+        TextView updatedDateView = (TextView) findViewById(R.id.updatedDate);
+        SimpleDateFormat date = new SimpleDateFormat("EEE, MMM dd yyyy");
+        Date updatedAt = new Date();
+        updatedDateView.setText(date.format(updatedAt));
+
+        TextView createdDateView = (TextView) findViewById(R.id.createdDate);
+        Date createdAt = new Date("Wed, Mar 29 1995");
+        createdDateView.setText(date.format(updatedAt));
     }
 
     @Override
