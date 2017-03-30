@@ -8,4 +8,220 @@
     android:gravity="center_horizontal"
     android:orientation="vertical"
     tools:context="com.example.cristiana.workshop1.MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:layout_width="75dp"
+            android:layout_height="75dp"
+            android:layout_margin="10dp"
+            android:src="@drawable/cat"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_gravity="center"
+            android:layout_margin="25dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Stan Cristiana"
+                android:textSize="@dimen/profileTextSize"
+                android:gravity="center"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/profileTextSize"
+                android:text="UPB"/>
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginLeft="@dimen/profileMarginLeft"
+        android:layout_marginRight="@dimen/profileMarginRight">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="BIO"
+            android:textSize="@dimen/profileTextSize"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/description"
+            android:ellipsize="end"
+            android:maxLines="5"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/profileMarginLeft"
+        android:layout_marginRight="@dimen/profileMarginRight"
+        android:layout_marginTop="20dp"
+        android:weightSum="2">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="Location"
+            android:textStyle="bold"
+            android:textSize="@dimen/profileTextSize"
+            android:layout_gravity="left"
+            android:layout_weight="1"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="Bucharest"
+            android:textSize="@dimen/profileTextSize"
+            android:textColor="@color/colorInfo"
+            android:layout_weight="1"
+            android:gravity="right" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/profileMarginLeft"
+        android:layout_marginRight="@dimen/profileMarginRight"
+        android:layout_marginTop="20dp"
+        android:weightSum="2">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="Email"
+            android:textStyle="bold"
+            android:textSize="@dimen/profileTextSize"
+            android:layout_gravity="left"
+            android:layout_weight="1"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="kissy2903@gmail.com"
+            android:textSize="@dimen/profileTextSize"
+            android:textColor="@color/colorInfo"
+            android:layout_weight="1"
+            android:gravity="right" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/profileMarginLeft"
+        android:layout_marginRight="@dimen/profileMarginRight"
+        android:layout_marginTop="20dp"
+        android:weightSum="2">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="Created"
+            android:textStyle="bold"
+            android:textSize="@dimen/profileTextSize"
+            android:layout_gravity="left"
+            android:layout_weight="1"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="Thu, March 30, 2017"
+            android:textSize="@dimen/profileTextSize"
+            android:textColor="@color/colorInfo"
+            android:layout_weight="1"
+            android:gravity="right" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/profileMarginLeft"
+        android:layout_marginRight="@dimen/profileMarginRight"
+        android:layout_marginTop="20dp"
+        android:weightSum="2">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="Updated"
+            android:textStyle="bold"
+            android:textSize="@dimen/profileTextSize"
+            android:layout_gravity="left"
+            android:layout_weight="1"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="Thu, March 30, 2017"
+            android:textSize="@dimen/profileTextSize"
+            android:textColor="@color/colorInfo"
+            android:layout_weight="1"
+            android:gravity="right" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/profileMarginLeft"
+        android:layout_marginRight="@dimen/profileMarginRight"
+        android:layout_marginTop="20dp"
+        android:weightSum="2">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="Public repos"
+            android:textStyle="bold"
+            android:textSize="@dimen/profileTextSize"
+            android:layout_gravity="left"
+            android:layout_weight="1"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="1"
+            android:textSize="@dimen/profileTextSize"
+            android:textColor="@color/colorInfo"
+            android:layout_weight="1"
+            android:gravity="right" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/profileMarginLeft"
+        android:layout_marginRight="@dimen/profileMarginRight"
+        android:layout_marginTop="20dp"
+        android:weightSum="2">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="Private repos"
+            android:textStyle="bold"
+            android:textSize="@dimen/profileTextSize"
+            android:layout_gravity="left"
+            android:layout_weight="1"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="1"
+            android:textSize="@dimen/profileTextSize"
+            android:textColor="@color/colorInfo"
+            android:layout_weight="1"
+            android:gravity="right" />
+    </LinearLayout>
 </LinearLayout>
