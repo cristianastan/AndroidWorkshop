@@ -3,4 +3,7 @@
     <dimen name="profileMarginLeft">15dp</dimen>
     <dimen name="profileMarginRight">15dp</dimen>
     <dimen name="profileTextSize">20sp</dimen>
+    <dimen name="layoutMarginTop">5dp</dimen>
+    <dimen name="paddingMedium">8dp</dimen>
+    <dimen name="buttonMargin">50dp</dimen>
 </resources>

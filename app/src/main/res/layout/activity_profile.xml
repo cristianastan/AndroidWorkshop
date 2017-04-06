@@ -68,7 +68,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="@dimen/profileMarginLeft"
         android:layout_marginRight="@dimen/profileMarginRight"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="@dimen/layoutMarginTop"
         android:weightSum="2">
 
         <TextView
@@ -95,7 +95,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="@dimen/profileMarginLeft"
         android:layout_marginRight="@dimen/profileMarginRight"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="@dimen/layoutMarginTop"
         android:weightSum="2">
 
         <TextView
@@ -122,7 +122,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="@dimen/profileMarginLeft"
         android:layout_marginRight="@dimen/profileMarginRight"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="@dimen/layoutMarginTop"
         android:weightSum="2">
 
         <TextView
@@ -150,7 +150,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="@dimen/profileMarginLeft"
         android:layout_marginRight="@dimen/profileMarginRight"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="@dimen/layoutMarginTop"
         android:weightSum="2">
 
         <TextView
@@ -178,7 +178,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="@dimen/profileMarginLeft"
         android:layout_marginRight="@dimen/profileMarginRight"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="@dimen/layoutMarginTop"
         android:weightSum="2">
 
         <TextView
@@ -205,7 +205,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="@dimen/profileMarginLeft"
         android:layout_marginRight="@dimen/profileMarginRight"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="@dimen/layoutMarginTop"
         android:weightSum="2">
 
         <TextView
@@ -226,4 +226,14 @@
             android:layout_weight="1"
             android:gravity="right" />
     </LinearLayout>
+
+    <Button
+        android:id="@+id/ViewRepositoriesButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:background="#ffbbee"
+        android:text="View repositories"
+        android:padding="@dimen/paddingMedium"
+        android:layout_margin="@dimen/buttonMargin"/>
 </LinearLayout>

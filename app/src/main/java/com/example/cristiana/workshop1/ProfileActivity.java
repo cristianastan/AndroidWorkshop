@@ -12,12 +12,13 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.cristiana.workshop1.R;
 
-public class ProfileActivity extends AppCompatActivity {
+public class ProfileActivity extends AppCompatActivity implements View.OnClickListener {
 
     TextView mEditText;
     boolean mShouldReturnData;
@@ -35,6 +36,18 @@ public class ProfileActivity extends AppCompatActivity {
         TextView createdDateView = (TextView) findViewById(R.id.createdDate);
         Date createdAt = new Date("Wed, Mar 29 1995");
         createdDateView.setText(date.format(updatedAt));
+
+        Button viewRepoButton = (Button) findViewById(R.id.ViewRepositoriesButton);
+        viewRepoButton.setOnClickListener(this);
+    }
+
+    @Override
+    public void onClick(View v) {
+        if (v.getId() == R.id.ViewRepositoriesButton) {
+            Intent intent = new Intent(this, RepositoryActivity.class);
+            startActivity(intent);
+            finish();
+        }
     }
 
     @Override

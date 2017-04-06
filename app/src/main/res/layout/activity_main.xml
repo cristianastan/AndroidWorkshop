@@ -46,6 +46,6 @@
             android:layout_height="wrap_content"
             android:background="#ffbbee"
             android:text="Login"
-            android:layout_margin="50dp"
+            android:layout_margin="@dimen/buttonMargin"
             android:layout_gravity="center" />
 </LinearLayout>

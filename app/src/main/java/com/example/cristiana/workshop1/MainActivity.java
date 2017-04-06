@@ -11,7 +11,15 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.cristiana.workshop1.model.GitHub;
+import com.example.cristiana.workshop1.model.LoginData;
+
 import org.w3c.dom.Text;
+
+import okhttp3.Credentials;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -53,18 +61,29 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 
     private void performLogin(String username, String password) {
-        //  TODO: make a network call and authenticate the user
-        if ("password".equals(password)) {
-            SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
-            preferences.edit().putBoolean("loggedIn", true).apply();
+        // Make a network call and authenticate the user
+        Call<LoginData> callable = GitHub.Service.Get().checkAuth(Credentials.basic(username, password));
 
-            Intent intent = new Intent(this, ProfileActivity.class);
-            startActivity(intent);
-            finish();
-        } else {
-            mUsername.setError("Invalid Username");
-            mPassword.setError("Invalid Password");
-            Toast.makeText(this, "Invalid Username or Password", Toast.LENGTH_LONG).show();
-        }
+        callable.enqueue(new Callback<LoginData>() {
+            @Override
+            public void onResponse(Call<LoginData> call, Response<LoginData> response) {
+                if (response.isSuccessful()) {
+                    SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(MainActivity.this);
+                    preferences.edit().putBoolean("loggedIn", true).apply();
+
+                    Intent intent = new Intent(MainActivity.this, ProfileActivity.class);
+                    startActivity(intent);
+                    finish();
+                } else {
+                    Toast.makeText(MainActivity.this, "An error ocurred!", Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<LoginData> call, Throwable t) {
+                t.printStackTrace();
+                Toast.makeText(MainActivity.this, "No Internet connection", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 }

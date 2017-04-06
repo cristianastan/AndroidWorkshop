@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">Workshop1</string>
     <string name="description">I am a Senior Android Cat-gineer with six years worth of experience in developing Android applications. My passion always resided in creating beautiful applications, and researching for new ways to improve user eperience for mobile devices. I see myself as an effective leader, skilled in enlisting the support of my team members so they are aligned with the project\'s and organisation\'s goals. Using a meticulous and detail-oriented approach, I am able to prioritise and delegate tasks effectively, to ensure project completion under the best of terms.</string>
+    <string name="repoNameAndOwner">%1$s (%2$s)</string>
 </resources>
