@@ -19,21 +19,18 @@ public class Repository {
     Date mCreatedAt;
     Date mUpdatedAt;
 
-    public static final List<Repository>sMockRepository;
+    public static final List<Repository> sMockRepository;
 
-    public Repository(String mName, String mOwner, String mDescription, boolean mIsPrivate,
-                      String mDefaultBranch, List<String> mTopics, int mWatchersCount,
-                      Date mCreatedAt, Date mUpdatedAt) {
-
-        this.mName = mName;
-        this.mOwner = mOwner;
-        this.mDescription = mDescription;
-        this.mIsPrivate = mIsPrivate;
-        this.mDefaultBranch = mDefaultBranch;
-        this.mTopics = mTopics;
-        this.mWatchersCount = mWatchersCount;
-        this.mCreatedAt = mCreatedAt;
-        this.mUpdatedAt = mUpdatedAt;
+    public Repository(String name, String owner, String description, boolean isPrivate, String defaultBranch, List<String> topics, int watchersCount, Date createdAt, Date updatedAt) {
+        mName = name;
+        mOwner = owner;
+        mDescription = description;
+        mIsPrivate = isPrivate;
+        mDefaultBranch = defaultBranch;
+        mTopics = topics;
+        mWatchersCount = watchersCount;
+        mCreatedAt = createdAt;
+        mUpdatedAt = updatedAt;
     }
 
     static {
@@ -57,75 +54,75 @@ public class Repository {
         }
     }
 
-    public String getmName() {
+    public String getName() {
         return mName;
     }
 
-    public void setmName(String mName) {
-        this.mName = mName;
+    public void setName(String name) {
+        mName = name;
     }
 
-    public String getmOwner() {
+    public String getOwner() {
         return mOwner;
     }
 
-    public void setmOwner(String mOwner) {
-        this.mOwner = mOwner;
+    public void setOwner(String owner) {
+        mOwner = owner;
     }
 
-    public String getmDescription() {
+    public String getDescription() {
         return mDescription;
     }
 
-    public void setmDescription(String mDescription) {
-        this.mDescription = mDescription;
+    public void setDescription(String description) {
+        mDescription = description;
     }
 
-    public boolean ismIsPrivate() {
+    public boolean isPrivate() {
         return mIsPrivate;
     }
 
-    public void setmIsPrivate(boolean mIsPrivate) {
-        this.mIsPrivate = mIsPrivate;
+    public void setPrivate(boolean aPrivate) {
+        mIsPrivate = aPrivate;
     }
 
-    public String getmDefaultBranch() {
+    public String getDefaultBranch() {
         return mDefaultBranch;
     }
 
-    public void setmDefaultBranch(String mDefaultBranch) {
-        this.mDefaultBranch = mDefaultBranch;
+    public void setDefaultBranch(String defaultBranch) {
+        mDefaultBranch = defaultBranch;
     }
 
-    public List<String> getmTopics() {
+    public List<String> getTopics() {
         return mTopics;
     }
 
-    public void setmTopics(List<String> mTopics) {
-        this.mTopics = mTopics;
+    public void setTopics(List<String> topics) {
+        mTopics = topics;
     }
 
-    public int getmWatchersCount() {
+    public int getWatchersCount() {
         return mWatchersCount;
     }
 
-    public void setmWatchersCount(int mWatchersCount) {
-        this.mWatchersCount = mWatchersCount;
+    public void setWatchersCount(int watchersCount) {
+        mWatchersCount = watchersCount;
     }
 
-    public Date getmCreatedAt() {
+    public Date getCreatedAt() {
         return mCreatedAt;
     }
 
-    public void setmCreatedAt(Date mCreatedAt) {
-        this.mCreatedAt = mCreatedAt;
+    public void setCreatedAt(Date createdAt) {
+        mCreatedAt = createdAt;
     }
 
-    public Date getmUpdatedAt() {
+    public Date getUpdatedAt() {
         return mUpdatedAt;
     }
 
-    public void setmUpdatedAt(Date mUpdatedAt) {
-        this.mUpdatedAt = mUpdatedAt;
+    public void setUpdatedAt(Date updatedAt) {
+        mUpdatedAt = updatedAt;
     }
 }

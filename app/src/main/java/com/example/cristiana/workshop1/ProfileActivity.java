@@ -17,11 +17,14 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.cristiana.workshop1.R;
+import com.example.cristiana.workshop1.model.ProfileData;
 
 public class ProfileActivity extends AppCompatActivity implements View.OnClickListener {
 
     TextView mEditText;
     boolean mShouldReturnData;
+    public static final String LOGGED_IN = "loggedIn";
+    private ProfileData mProfileData = ProfileData.sMockProfileData;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,12 +32,12 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
         setContentView(R.layout.activity_profile);
 
         TextView updatedDateView = (TextView) findViewById(R.id.updatedDate);
-        SimpleDateFormat date = new SimpleDateFormat("EEE, MMM dd yyyy");
-        Date updatedAt = new Date();
+        SimpleDateFormat date = new SimpleDateFormat("EEE, MMM dd, yyyy");
+        Date updatedAt = new Date(mProfileData.getUpdated());
         updatedDateView.setText(date.format(updatedAt));
 
         TextView createdDateView = (TextView) findViewById(R.id.createdDate);
-        Date createdAt = new Date("Wed, Mar 29 1995");
+        Date createdAt = new Date(mProfileData.getCreated());
         createdDateView.setText(date.format(updatedAt));
 
         Button viewRepoButton = (Button) findViewById(R.id.ViewRepositoriesButton);
@@ -46,7 +49,6 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
         if (v.getId() == R.id.ViewRepositoriesButton) {
             Intent intent = new Intent(this, RepositoryActivity.class);
             startActivity(intent);
-            finish();
         }
     }
 
@@ -62,13 +64,15 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
         if (item.getItemId() == R.id.SignOut) {
             //Delete data from preferences
             SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
-            preferences.edit().remove("loggedIn").apply();
+            preferences.edit().remove(LOGGED_IN).apply();
 
             Intent intent = new Intent(this, MainActivity.class);
             startActivity(intent);
             finish();
+
+            return true;
         }
 
-        return true;
+        return false;
     }
 }

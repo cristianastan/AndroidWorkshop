@@ -29,7 +29,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Stan Cristiana"
+                android:text="@string/name"
                 android:textSize="@dimen/profileTextSize"
                 android:gravity="center"/>
 
@@ -37,7 +37,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="@dimen/profileTextSize"
-                android:text="UPB"/>
+                android:text="@string/organization"/>
         </LinearLayout>
     </LinearLayout>
 
@@ -51,7 +51,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="BIO"
+            android:text="@string/bio"
             android:textSize="@dimen/profileTextSize"
             android:textStyle="bold"/>
 
@@ -74,7 +74,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:text="Location"
+            android:text="@string/location"
             android:textStyle="bold"
             android:textSize="@dimen/profileTextSize"
             android:layout_gravity="left"
@@ -83,7 +83,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:text="Bucharest"
+            android:text="@string/locationValue"
             android:textSize="@dimen/profileTextSize"
             android:textColor="@color/colorInfo"
             android:layout_weight="1"
@@ -101,7 +101,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:text="Email"
+            android:text="@string/email"
             android:textStyle="bold"
             android:textSize="@dimen/profileTextSize"
             android:layout_gravity="left"
@@ -110,7 +110,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:text="kissy2903@gmail.com"
+            android:text="@string/emailValue"
             android:textSize="@dimen/profileTextSize"
             android:textColor="@color/colorInfo"
             android:layout_weight="1"
@@ -128,7 +128,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:text="Created"
+            android:text="@string/created"
             android:textStyle="bold"
             android:textSize="@dimen/profileTextSize"
             android:layout_gravity="left"
@@ -138,7 +138,7 @@
             android:id="@+id/createdDate"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:text="Thu, March 30, 2017"
+            android:text="@string/createdValue"
             android:textSize="@dimen/profileTextSize"
             android:textColor="@color/colorInfo"
             android:layout_weight="1"
@@ -156,7 +156,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:text="Updated"
+            android:text="@string/updated"
             android:textStyle="bold"
             android:textSize="@dimen/profileTextSize"
             android:layout_gravity="left"
@@ -166,7 +166,7 @@
             android:id="@+id/updatedDate"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:text="Thu, March 30, 2017"
+            android:text="@string/updatedValue"
             android:textSize="@dimen/profileTextSize"
             android:textColor="@color/colorInfo"
             android:layout_weight="1"
@@ -184,7 +184,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:text="Public repos"
+            android:text="@string/publicRepos"
             android:textStyle="bold"
             android:textSize="@dimen/profileTextSize"
             android:layout_gravity="left"
@@ -193,7 +193,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:text="1"
+            android:text="@string/publicReposCount"
             android:textSize="@dimen/profileTextSize"
             android:textColor="@color/colorInfo"
             android:layout_weight="1"
@@ -211,7 +211,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:text="Private repos"
+            android:text="@string/privateRepos"
             android:textStyle="bold"
             android:textSize="@dimen/profileTextSize"
             android:layout_gravity="left"
@@ -220,7 +220,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:text="1"
+            android:text="@string/privateReposCount"
             android:textSize="@dimen/profileTextSize"
             android:textColor="@color/colorInfo"
             android:layout_weight="1"

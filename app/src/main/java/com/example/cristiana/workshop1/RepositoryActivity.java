@@ -89,12 +89,12 @@ public class RepositoryActivity extends AppCompatActivity {
 
             public void bind(Repository repository) {
                 /* afisarea datelor din Repository */
-                mWatchersCount.setText(String.valueOf(repository.getmWatchersCount()));
+                mWatchersCount.setText(String.valueOf(repository.getWatchersCount()));
                 /* itemView returneaza LinearLayout-ul din activity_repository */
                 mNameAndOwner.setText(itemView.getContext().getString(R.string.repoNameAndOwner,
-                        repository.getmName(), repository.getmOwner()));
-                mDescription.setText(repository.getmDescription());
-                mIsPublic.setChecked(!repository.ismIsPrivate());
+                        repository.getName(), repository.getOwner()));
+                mDescription.setText(repository.getDescription());
+                mIsPublic.setChecked(!repository.isPrivate());
             }
         }
     }

@@ -16,6 +16,9 @@ import com.example.cristiana.workshop1.model.LoginData;
 
 import org.w3c.dom.Text;
 
+import java.net.UnknownHostException;
+import java.util.concurrent.TimeoutException;
+
 import okhttp3.Credentials;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -26,6 +29,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     TextView mUsername, mPassword;
 
     private static final String TAG = "MainActivity";
+    public static final String LOGGED_IN = "loggedIn";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,7 +38,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         /* preferences */
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
-        if (preferences.getBoolean("loggedIn", false)) {
+        if (preferences.getBoolean(LOGGED_IN, false)) {
             Intent intent = new Intent(this, ProfileActivity.class);
             startActivity(intent);
             finish();
@@ -59,6 +63,37 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
+    public void goToProfileScreen() {
+        Intent intent = new Intent(MainActivity.this, ProfileActivity.class);
+        startActivity(intent);
+        finish();
+    }
+
+    private String errorMessage(int code) {
+        String message = "An error occured";
+        switch (code) {
+            case 401: message = "Invalid username or password"; break;
+            case 403: message = "Login limit has been reached"; break;
+            case 404: message = "Page not found"; break;
+            case 500: message = "Internal server error"; break;
+            case 503: message = "Serice unavailable"; break;
+            case 550: message = "Permission denied"; break;
+        }
+
+        return message;
+    }
+
+    private String failureMessage(Throwable t) {
+        String message = "Connection error";
+
+        if (t instanceof UnknownHostException)
+            message = "No Internet connecion found";
+
+        if (t instanceof TimeoutException)
+            message = "Connection time expired";
+
+        return message;
+    }
 
     private void performLogin(String username, String password) {
         // Make a network call and authenticate the user
@@ -69,20 +104,20 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             public void onResponse(Call<LoginData> call, Response<LoginData> response) {
                 if (response.isSuccessful()) {
                     SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(MainActivity.this);
-                    preferences.edit().putBoolean("loggedIn", true).apply();
-
-                    Intent intent = new Intent(MainActivity.this, ProfileActivity.class);
-                    startActivity(intent);
-                    finish();
+                    preferences.edit().putBoolean(LOGGED_IN, true).apply();
+                    goToProfileScreen();
                 } else {
-                    Toast.makeText(MainActivity.this, "An error ocurred!", Toast.LENGTH_SHORT).show();
+                    String message = errorMessage(response.code());
+                    Toast.makeText(MainActivity.this, message, Toast.LENGTH_SHORT).show();
                 }
             }
 
             @Override
             public void onFailure(Call<LoginData> call, Throwable t) {
                 t.printStackTrace();
-                Toast.makeText(MainActivity.this, "No Internet connection", Toast.LENGTH_SHORT).show();
+
+                String message = failureMessage(t);
+                Toast.makeText(MainActivity.this, message, Toast.LENGTH_SHORT).show();
             }
         });
     }
