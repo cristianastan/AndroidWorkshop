@@ -1,8 +1,10 @@
 package com.example.cristiana.workshop1;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.PersistableBundle;
+import android.preference.PreferenceManager;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
@@ -14,12 +16,19 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.example.cristiana.workshop1.model.GitHub;
 import com.example.cristiana.workshop1.model.Repository;
 
 import org.w3c.dom.Text;
 
+import java.util.ArrayList;
 import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 /**
  * Created by Cristiana on 4/4/2017.
@@ -28,28 +37,70 @@ import java.util.List;
 public class RepositoryActivity extends AppCompatActivity {
     RecyclerView mRecyclerView;
 
+    TextView mWatcherCount;
+    TextView mNameAndOwner;
+    TextView mDescription;
+    CheckBox mIsPrivate;
+
+    Adapter adapter;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_repository);
+
+        mWatcherCount = (TextView) findViewById(R.id.WatchersCount);
+        mNameAndOwner = (TextView) findViewById(R.id.NameAndOwner);
+        mDescription = (TextView) findViewById(R.id.Description);
+        mIsPrivate = (CheckBox) findViewById(R.id.PublicCheckbox);
+
+        fetchRepository();
 
         /* setare layout manager default */
         mRecyclerView = (RecyclerView) findViewById(R.id.recycler_view);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         /* setare adaptop */
-        Adapter adapter = new Adapter(Repository.sMockRepository);
+        adapter = new Adapter();
         mRecyclerView.setAdapter(adapter);
 
     }
 
+    private void fetchRepository() {
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
+
+        Call<List<Repository>> callable = GitHub.Service.Get()
+                .getRepositories(preferences.getString(Contract.Preferecnes.AUTH_HASH, null));
+
+        callable.enqueue(new Callback<List<Repository>>() {
+            @Override
+            public void onResponse(Call<List<Repository>> call, Response<List<Repository>> response) {
+                if (response.isSuccessful()) {
+                    List<Repository> repos = response.body();
+                    adapter.setData(repos);
+                    adapter.notifyDataSetChanged();
+                } else {
+                    Toast.makeText(RepositoryActivity.this, "Services unavailable", Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<List<Repository>> call, Throwable t) {
+                t.printStackTrace();
+
+                Toast.makeText(RepositoryActivity.this, "No Internet connection", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
 
     /* adaptor care leaga modelul la view */
     static class Adapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
-        List<Repository> mData;
+        List<Repository> mData = new ArrayList<>();
 
-        public Adapter(List<Repository> mData) {
-            this.mData = mData;
+        public void setData(List<Repository> repos) {
+            for (Repository repo : repos) {
+                mData.add(repo);
+            }
         }
 
         @Override
@@ -73,7 +124,6 @@ public class RepositoryActivity extends AppCompatActivity {
             private final TextView mWatchersCount;
             private final TextView mNameAndOwner;
             private final TextView mDescription;
-            private final LinearLayout mTopics;
             private final CheckBox mIsPublic;
 
             public ViewHolder(View itemView) {
@@ -83,7 +133,6 @@ public class RepositoryActivity extends AppCompatActivity {
                 mWatchersCount = (TextView) itemView.findViewById(R.id.WatchersCount);
                 mNameAndOwner = (TextView) itemView.findViewById(R.id.NameAndOwner);
                 mDescription = (TextView) itemView.findViewById(R.id.Description);
-                mTopics = (LinearLayout) itemView.findViewById(R.id.Topics);
                 mIsPublic = (CheckBox) itemView.findViewById(R.id.PublicCheckbox);
             }
 
@@ -94,7 +143,7 @@ public class RepositoryActivity extends AppCompatActivity {
                 mNameAndOwner.setText(itemView.getContext().getString(R.string.repoNameAndOwner,
                         repository.getName(), repository.getOwner()));
                 mDescription.setText(repository.getDescription());
-                mIsPublic.setChecked(!repository.isPrivate());
+                mIsPublic.setChecked(!repository.getPrivate());
             }
         }
     }

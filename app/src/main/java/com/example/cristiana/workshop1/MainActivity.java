@@ -2,6 +2,7 @@ package com.example.cristiana.workshop1;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.preference.Preference;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -29,7 +30,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     TextView mUsername, mPassword;
 
     private static final String TAG = "MainActivity";
-    public static final String LOGGED_IN = "loggedIn";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,7 +38,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         /* preferences */
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
-        if (preferences.getBoolean(LOGGED_IN, false)) {
+        if (preferences.getString(Contract.Preferecnes.AUTH_HASH, null) != null) {
             Intent intent = new Intent(this, ProfileActivity.class);
             startActivity(intent);
             finish();
@@ -95,7 +95,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         return message;
     }
 
-    private void performLogin(String username, String password) {
+    private void performLogin(final String username, final String password) {
+        /* Salvare username si password pentru a nu le pasa intre activitati de fiecare date */
+        final String authHash = Credentials.basic(username, password);
+
         // Make a network call and authenticate the user
         Call<LoginData> callable = GitHub.Service.Get().checkAuth(Credentials.basic(username, password));
 
@@ -104,7 +107,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             public void onResponse(Call<LoginData> call, Response<LoginData> response) {
                 if (response.isSuccessful()) {
                     SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(MainActivity.this);
-                    preferences.edit().putBoolean(LOGGED_IN, true).apply();
+                    preferences.edit()
+                        .putString(Contract.Preferecnes.AUTH_HASH, authHash)
+                        .putString(Contract.Preferecnes.USERNAME, username)
+                        .apply();
                     goToProfileScreen();
                 } else {
                     String message = errorMessage(response.code());

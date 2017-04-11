@@ -14,6 +14,7 @@
         android:layout_height="wrap_content">
 
         <ImageView
+            android:id="@+id/profileImage"
             android:layout_width="75dp"
             android:layout_height="75dp"
             android:layout_margin="10dp"
@@ -27,6 +28,7 @@
             android:layout_margin="20dp">
 
             <TextView
+                android:id="@+id/profileName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/name"
@@ -34,6 +36,7 @@
                 android:gravity="center"/>
 
             <TextView
+                android:id="@+id/profileOrganization"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="@dimen/profileTextSize"
@@ -56,6 +59,7 @@
             android:textStyle="bold"/>
 
         <TextView
+            android:id="@+id/profileBio"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/description"
@@ -81,6 +85,7 @@
             android:layout_weight="1"/>
 
         <TextView
+            android:id="@+id/profileLocation"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:text="@string/locationValue"
@@ -108,6 +113,7 @@
             android:layout_weight="1"/>
 
         <TextView
+            android:id="@+id/profileEmail"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:text="@string/emailValue"
@@ -135,7 +141,7 @@
             android:layout_weight="1"/>
 
         <TextView
-            android:id="@+id/createdDate"
+            android:id="@+id/profileCreatedAt"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:text="@string/createdValue"
@@ -163,7 +169,7 @@
             android:layout_weight="1"/>
 
         <TextView
-            android:id="@+id/updatedDate"
+            android:id="@+id/profileUpdatedAt"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:text="@string/updatedValue"
@@ -191,6 +197,7 @@
             android:layout_weight="1"/>
 
         <TextView
+            android:id="@+id/profilePublicRepos"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:text="@string/publicReposCount"
@@ -218,6 +225,7 @@
             android:layout_weight="1"/>
 
         <TextView
+            android:id="@+id/profilePrivateRepos"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:text="@string/privateReposCount"
