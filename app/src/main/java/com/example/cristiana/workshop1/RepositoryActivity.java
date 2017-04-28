@@ -37,22 +37,12 @@ import retrofit2.Response;
 public class RepositoryActivity extends AppCompatActivity {
     RecyclerView mRecyclerView;
 
-    TextView mWatcherCount;
-    TextView mNameAndOwner;
-    TextView mDescription;
-    CheckBox mIsPrivate;
-
     Adapter adapter;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_repository);
-
-        mWatcherCount = (TextView) findViewById(R.id.WatchersCount);
-        mNameAndOwner = (TextView) findViewById(R.id.NameAndOwner);
-        mDescription = (TextView) findViewById(R.id.Description);
-        mIsPrivate = (CheckBox) findViewById(R.id.PublicCheckbox);
 
         fetchRepository();
 
@@ -141,7 +131,7 @@ public class RepositoryActivity extends AppCompatActivity {
                 mWatchersCount.setText(String.valueOf(repository.getWatchersCount()));
                 /* itemView returneaza LinearLayout-ul din activity_repository */
                 mNameAndOwner.setText(itemView.getContext().getString(R.string.repoNameAndOwner,
-                        repository.getName(), repository.getOwner()));
+                        repository.getName(), repository.getOwner().getLogin()));
                 mDescription.setText(repository.getDescription());
                 mIsPublic.setChecked(!repository.getPrivate());
             }

@@ -102,7 +102,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
 
     private void updateUI(ProfileData profile) {
         mName.setText(profile.getName());
-        mOrganization.setText(profile.getOrganizationsUrl());
+        mOrganization.setText(profile.getCompany());
         //mProfileData.setAvatarUrl(profile.getAvatarUrl());
         mBio.setText(profile.getBio());
         mLocation.setText(profile.getLocation());

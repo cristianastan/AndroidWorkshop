@@ -17,4 +17,5 @@
     <string name="publicReposCount">12</string>
     <string name="privateRepos">Private repos</string>
     <string name="privateReposCount">11</string>
+    <string name="viewReposButton">View repositories</string>
 </resources>
