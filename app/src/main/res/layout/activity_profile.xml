@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    tools:context="com.example.cristiana.workshop1.MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/profileImage"
+            android:layout_width="75dp"
+            android:layout_height="75dp"
+            android:layout_margin="10dp"
+            android:src="@drawable/cat"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_gravity="center"
+            android:layout_margin="20dp">
+
+            <TextView
+                android:id="@+id/profileName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/name"
+                android:textSize="@dimen/profileTextSize"
+                android:gravity="center"/>
+
+            <TextView
+                android:id="@+id/profileOrganization"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/profileTextSize"
+                android:text="@string/organization"/>
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginLeft="@dimen/profileMarginLeft"
+        android:layout_marginStart="@dimen/profileMarginLeft"
+        android:layout_marginRight="@dimen/profileMarginRight"
+        android:layout_marginEnd="@dimen/profileMarginRight">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/bio"
+            android:textSize="@dimen/profileTextSize"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/profileBio"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/description"
+            android:ellipsize="end"
+            android:maxLines="5"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/profileMarginLeft"
+        android:layout_marginStart="@dimen/profileMarginLeft"
+        android:layout_marginRight="@dimen/profileMarginRight"
+        android:layout_marginEnd="@dimen/profileMarginRight"
+        android:layout_marginTop="@dimen/layoutMarginTop"
+        android:weightSum="2">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="@string/location"
+            android:textStyle="bold"
+            android:textSize="@dimen/profileTextSize"
+            android:layout_gravity="left"
+            android:layout_weight="1"/>
+
+        <TextView
+            android:id="@+id/profileLocation"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="@string/locationValue"
+            android:textSize="@dimen/profileTextSize"
+            android:textColor="@color/colorInfo"
+            android:layout_weight="1"
+            android:gravity="end" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/profileMarginLeft"
+        android:layout_marginStart="@dimen/profileMarginLeft"
+        android:layout_marginRight="@dimen/profileMarginRight"
+        android:layout_marginEnd="@dimen/profileMarginRight"
+        android:layout_marginTop="@dimen/layoutMarginTop"
+        android:weightSum="2">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="@string/email"
+            android:textStyle="bold"
+            android:textSize="@dimen/profileTextSize"
+            android:layout_gravity="left"
+            android:layout_weight="1"/>
+
+        <TextView
+            android:id="@+id/profileEmail"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="@string/emailValue"
+            android:textSize="@dimen/profileTextSize"
+            android:textColor="@color/colorInfo"
+            android:layout_weight="1"
+            android:gravity="end" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/profileMarginLeft"
+        android:layout_marginStart="@dimen/profileMarginLeft"
+        android:layout_marginRight="@dimen/profileMarginRight"
+        android:layout_marginEnd="@dimen/profileMarginRight"
+        android:layout_marginTop="@dimen/layoutMarginTop"
+        android:weightSum="2">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="@string/created"
+            android:textStyle="bold"
+            android:textSize="@dimen/profileTextSize"
+            android:layout_gravity="left"
+            android:layout_weight="1"/>
+
+        <TextView
+            android:id="@+id/profileCreatedAt"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="@string/createdValue"
+            android:textSize="@dimen/profileTextSize"
+            android:textColor="@color/colorInfo"
+            android:layout_weight="1"
+            android:gravity="end" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/profileMarginLeft"
+        android:layout_marginStart="@dimen/profileMarginLeft"
+        android:layout_marginRight="@dimen/profileMarginRight"
+        android:layout_marginEnd="@dimen/profileMarginRight"
+        android:layout_marginTop="@dimen/layoutMarginTop"
+        android:weightSum="2">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="@string/updated"
+            android:textStyle="bold"
+            android:textSize="@dimen/profileTextSize"
+            android:layout_gravity="left"
+            android:layout_weight="1"/>
+
+        <TextView
+            android:id="@+id/profileUpdatedAt"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="@string/updatedValue"
+            android:textSize="@dimen/profileTextSize"
+            android:textColor="@color/colorInfo"
+            android:layout_weight="1"
+            android:gravity="end" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/profileMarginLeft"
+        android:layout_marginStart="@dimen/profileMarginLeft"
+        android:layout_marginRight="@dimen/profileMarginRight"
+        android:layout_marginEnd="@dimen/profileMarginRight"
+        android:layout_marginTop="@dimen/layoutMarginTop"
+        android:weightSum="2">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="@string/publicRepos"
+            android:textStyle="bold"
+            android:textSize="@dimen/profileTextSize"
+            android:layout_gravity="left"
+            android:layout_weight="1"/>
+
+        <TextView
+            android:id="@+id/profilePublicRepos"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="@string/publicReposCount"
+            android:textSize="@dimen/profileTextSize"
+            android:textColor="@color/colorInfo"
+            android:layout_weight="1"
+            android:gravity="end" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/profileMarginLeft"
+        android:layout_marginStart="@dimen/profileMarginLeft"
+        android:layout_marginRight="@dimen/profileMarginRight"
+        android:layout_marginEnd="@dimen/profileMarginRight"
+        android:layout_marginTop="@dimen/layoutMarginTop"
+        android:weightSum="2">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="@string/privateRepos"
+            android:textStyle="bold"
+            android:textSize="@dimen/profileTextSize"
+            android:layout_gravity="left"
+            android:layout_weight="1"/>
+
+        <TextView
+            android:id="@+id/profilePrivateRepos"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="@string/privateReposCount"
+            android:textSize="@dimen/profileTextSize"
+            android:textColor="@color/colorInfo"
+            android:layout_weight="1"
+            android:gravity="end" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/ViewRepositoriesButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:background="@color/colorButton"
+        android:text="@string/viewReposButton"
+        android:padding="@dimen/paddingMedium"
+        android:layout_margin="@dimen/buttonMargin"/>
+</LinearLayout>
